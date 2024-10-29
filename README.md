@@ -1,9 +1,8 @@
-# LPRNet_Pytorch
-Pytorch Implementation For LPRNet, A High Performance And Lightweight License Plate Recognition Framework.  
-完全适用于中国车牌识别（Chinese License Plate Recognition）及国外车牌识别！  
-目前仅支持同时识别蓝牌和绿牌即新能源车牌等中国车牌，但可通过扩展训练数据或微调支持其他类型车牌及提高识别准确率！
+# CSC519/791 Course Project: LPRNet_Pytorch Optimization
 
-# dependencies
+This repository contains LPRNet model implementation. It is a lightweight License Plate Recognition model. It is adapted from https://github.com/sirius-ai/LPRNet_Pytorch. 
+
+## dependencies
 
 - pytorch >= 1.0.0
 - opencv-python 3.x
@@ -12,34 +11,25 @@ Pytorch Implementation For LPRNet, A High Performance And Lightweight License Pl
 - Pillow
 - numpy
 
-# pretrained model
+## Pretrained model
 
 * [pretrained_model](https://github.com/sirius-ai/LPRNet_Pytorch/tree/master/weights/)
 
-# training and testing
+## Dataset
 
-1. prepare your datasets, image size must be 94x24.
-2. base on your datsets path modify the scripts its hyperparameters --train_img_dirs or --test_img_dirs.
-3. adjust other hyperparameters if need.
-4. run 'python train_LPRNet.py' or 'python test_LPRNet.py'.
-5. if want to show testing result, add '--show true' or '--show 1' to run command.
+The data folder contains train and test datasets. The dataset is relatively small, 800 images in train and 200 in test.
+The image file base name is the true plate number, that is, the label of the image.
+These plates are Chinse plates; the first character of a plate is a Chinese character. 
+The training and testing script requires the image size to be 94x24, which is the size of the images in the train and test folders.
 
-# performance
+## Training and testing
 
-- personal test datasets.
-- include blue/green license plate.
-- images are very widely.
-- total test images number is 27320.
+1. Base on your datsets path, modify the parameters --train_img_dirs or --test_img_dirs in the scripts.
+2. Adjust other hyperparameters if need.
+3. Run 'python train_LPRNet.py' or 'python test_LPRNet.py'.
+4. If you want to show the testing result, add '--show true' or '--show 1' flags to the command. 
 
-|  size  | personal test imgs(%) | inference@gtx 1060(ms) |
-| ------ | --------------------- | ---------------------- |
-|  1.7M  |         96.0+         |          0.5-          |
-
-# References
+## References
 
 1. [LPRNet: License Plate Recognition via Deep Neural Networks](https://arxiv.org/abs/1806.10447v1)
-2. [PyTorch中文文档](https://pytorch-cn.readthedocs.io/zh/latest/)
 
-# postscript
-
-If you found this useful, please give me a star, thanks!
